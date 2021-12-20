@@ -145,6 +145,10 @@ section {
       background-color: black;
       color: white;
       border: solid 1px black;
+      &:hover {
+        background-color: white;
+        color: black;
+      }
     }
   }
 }

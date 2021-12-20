@@ -163,6 +163,11 @@ section {
   border: solid 1px black;
 }
 
+.contact .button button:hover {
+  background-color: white;
+  color: black;
+}
+
 footer {
   text-align: center;
   background-color: black;
