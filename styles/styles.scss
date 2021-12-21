@@ -14,6 +14,12 @@ a {
 
 body {
   width: 100%;
+  color: #24292e; // add
+}
+
+img {
+  // add
+  max-width: 100%;
 }
 //*************************
 
@@ -23,15 +29,19 @@ header {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  height: 260px;
+  // height: 260px;
+  height: 270px;
   align-items: center;
+
+  animation: slideIn 2.5s 1;
 
   nav {
     ul {
       display: flex;
-
+      padding: 10px 0;
       li {
         margin-left: 30px;
+        font-size: 0.9rem;
         &:hover {
           opacity: 0.7;
         }
@@ -45,23 +55,59 @@ header {
   }
 }
 
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .main-view {
   img {
     width: 100%;
     height: 420px;
+    max-width: 1920px; // add
+    object-fit: cover; //add
   }
-  margin-bottom: 85px;
+  // margin-bottom: 85px;
+  margin-bottom: 80px;
 }
 
 //*************************
 .title {
   text-align: center;
+  font-size: 1.5rem; // add
+  margin-bottom: 65px; // add
+
+  animation-name: fadeInAnime;
+  animation-fill-mode: forwards;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-delay: 0.5s;
+  animation-direction: normal;
+}
+
+@keyframes fadeInAnime {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 section {
   max-width: 960px;
   padding: 0 4%;
-  margin: 0 auto 135px auto;
+  // margin: 0 auto 135px auto;
+  margin: 0 auto 130px auto;
+  font-size: 0.9rem;
 }
 
 .about {
@@ -74,6 +120,7 @@ section {
 
   .text {
     margin-top: 30px;
+    text-align: justify;
   }
 }
 
@@ -86,14 +133,16 @@ section {
     justify-content: space-between;
     flex-wrap: wrap;
     li {
-      padding-bottom: 30px;
+      // padding-bottom: 30px;
+      width: 31%; // add
+      margin-bottom: 23px; // add
     }
   }
 
-  img {
-    width: 260px;
-    height: 170px;
-  }
+  //   img {
+  //     width: 260px;
+  //     height: 170px;
+  //   }
 }
 
 //*************************
@@ -101,15 +150,20 @@ section {
   dl {
     display: flex;
     flex-wrap: wrap;
-    border-top: solid 1px black;
+    // border-top: solid 1px black;
+    border-top: solid 1px #c8c8c8; // add
+    margin-bottom: 20px; // add
     dt {
       width: 20%;
-      border-bottom: solid 1px black;
+      // border-bottom: solid 1px black;
+      border-bottom: solid 1px #c8c8c8; // add
       padding: 15px;
     }
     dd {
-      width: 68%;
-      border-bottom: solid 1px black;
+      // width: 68%;
+      width: 80%;
+      // border-bottom: solid 1px black;
+      border-bottom: solid 1px #c8c8c8; // add
       padding: 15px;
     }
   }
@@ -124,16 +178,20 @@ section {
       width: 15%;
     }
     dd {
-      width: 80%;
+      // width: 80%;
+      width: 85%;
       margin-bottom: 10px;
       input {
         width: 100%;
         padding: 10px;
+        border: solid 1px #c8c8c8;
       }
       textarea {
         width: 100%;
         padding: 10px;
+        border: solid 1px #c8c8c8;
         resize: vertical;
+        height: 10rem;
       }
     }
   }
@@ -158,8 +216,77 @@ footer {
   text-align: center;
   background-color: black;
   color: white;
-  padding: 10px 10px;
-  p {
-    font-size: 10x;
+  padding: 10px 20px;
+  font-size: 0.5rem;
+}
+
+//*************************
+// SP
+//*************************
+@media screen and (max-width: 600px) {
+  section {
+    margin-bottom: 70px;
+  }
+  .main-view {
+    margin-top: 20px;
+  }
+  .title {
+    margin-bottom: 40px;
+  }
+
+  header {
+    max-width: 100%;
+    height: auto;
+    flex-direction: column;
+
+    a {
+      margin-top: 20px;
+    }
+
+    li {
+      font-size: 0.8rem;
+      margin-left: 20px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .works {
+    ul {
+      flex-direction: column;
+      li {
+        width: 100%;
+      }
+    }
+  }
+
+  .news {
+    dl {
+      flex-direction: column;
+
+      dt {
+        width: 100%;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      dd {
+        width: 100%;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .contact {
+    dl {
+      flex-direction: column;
+
+      dt {
+        width: 100%;
+      }
+      dd {
+        width: 100%;
+      }
+    }
   }
 }

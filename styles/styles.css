@@ -13,6 +13,11 @@ a {
 
 body {
   width: 100%;
+  color: #24292e;
+}
+
+img {
+  max-width: 100%;
 }
 
 header {
@@ -25,20 +30,24 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 0 auto;
-  height: 260px;
+  height: 270px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-animation: slideIn 2.5s 1;
+          animation: slideIn 2.5s 1;
 }
 
 header nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 10px 0;
 }
 
 header nav ul li {
   margin-left: 30px;
+  font-size: 0.9rem;
 }
 
 header nav ul li:hover {
@@ -50,23 +59,87 @@ header nav ul li a img {
   height: 20px;
 }
 
+@-webkit-keyframes slideIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
 .main-view {
-  margin-bottom: 85px;
+  margin-bottom: 80px;
 }
 
 .main-view img {
   width: 100%;
   height: 420px;
+  max-width: 1920px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .title {
   text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 65px;
+  -webkit-animation-name: fadeInAnime;
+          animation-name: fadeInAnime;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@-webkit-keyframes fadeInAnime {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInAnime {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 section {
   max-width: 960px;
   padding: 0 4%;
-  margin: 0 auto 135px auto;
+  margin: 0 auto 130px auto;
+  font-size: 0.9rem;
 }
 
 .about .name {
@@ -79,6 +152,7 @@ section {
 
 .about .text {
   margin-top: 30px;
+  text-align: justify;
 }
 
 .works ul {
@@ -94,12 +168,8 @@ section {
 }
 
 .works ul li {
-  padding-bottom: 30px;
-}
-
-.works img {
-  width: 260px;
-  height: 170px;
+  width: 31%;
+  margin-bottom: 23px;
 }
 
 .news dl {
@@ -108,18 +178,19 @@ section {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  border-top: solid 1px black;
+  border-top: solid 1px #c8c8c8;
+  margin-bottom: 20px;
 }
 
 .news dl dt {
   width: 20%;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px #c8c8c8;
   padding: 15px;
 }
 
 .news dl dd {
-  width: 68%;
-  border-bottom: solid 1px black;
+  width: 80%;
+  border-bottom: solid 1px #c8c8c8;
   padding: 15px;
 }
 
@@ -136,19 +207,22 @@ section {
 }
 
 .contact dl dd {
-  width: 80%;
+  width: 85%;
   margin-bottom: 10px;
 }
 
 .contact dl dd input {
   width: 100%;
   padding: 10px;
+  border: solid 1px #c8c8c8;
 }
 
 .contact dl dd textarea {
   width: 100%;
   padding: 10px;
+  border: solid 1px #c8c8c8;
   resize: vertical;
+  height: 10rem;
 }
 
 .contact .button {
@@ -172,10 +246,73 @@ footer {
   text-align: center;
   background-color: black;
   color: white;
-  padding: 10px 10px;
+  padding: 10px 20px;
+  font-size: 0.5rem;
 }
 
-footer p {
-  font-size: 10x;
+@media screen and (max-width: 600px) {
+  section {
+    margin-bottom: 70px;
+  }
+  .main-view {
+    margin-top: 20px;
+  }
+  .title {
+    margin-bottom: 40px;
+  }
+  header {
+    max-width: 100%;
+    height: auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  header a {
+    margin-top: 20px;
+  }
+  header li {
+    font-size: 0.8rem;
+    margin-left: 20px;
+  }
+  header li:first-child {
+    margin-left: 0;
+  }
+  .works ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .works ul li {
+    width: 100%;
+  }
+  .news dl {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .news dl dt {
+    width: 100%;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .news dl dd {
+    width: 100%;
+    padding-bottom: 0;
+  }
+  .contact dl {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .contact dl dt {
+    width: 100%;
+  }
+  .contact dl dd {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
